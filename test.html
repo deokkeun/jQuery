@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.js" 
+    integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" 
+    crossorigin="anonymous"></script>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+        .container > div {
+            display: inline-block;
+        }
+        .box {
+            width: 100px;
+            height: 100px;
+            border: 1px solid black;
+            transition-duration: 1s;
+        }
+        .inp {
+            width: 100px;
+        }
+    </style>
+</head>
+<body>
+    <form action="">
+
+        <div class="container">
+            <div>
+                <div class="box"></div>
+                <input type="text" class="inp">
+            </div>
+            <div>
+                <div class="box"></div>
+                <input type="text" class="inp">
+            </div>
+            <div>
+                <div class="box"></div>
+                <input type="text" class="inp">
+            </div>
+            <div>
+                <div class="box"></div>
+                <input type="text" class="inp">
+            </div>
+            <div>
+                <div class="box"></div>
+                <input type="text" class="inp">
+            </div>
+            <div>
+                <div class="box"></div>
+                <input type="text" class="inp">
+            </div>
+
+                <button type="reset" id="btn">리셋</button>
+
+        </div>
+        
+    </form>
+    
+    <script>
+        const divArr = $(".box");
+        const inputArr = $(".inp");
+
+
+        $(".inp").on("input", function() {
+            for(let i = 0; i < divArr.length; i++) {
+                $(divArr[i]).css("backgroundColor", $(inputArr[i]).val());
+                $(this).css({"borderColor" : $(this).val(), 
+                "color" : $(this).val()}); 
+            }
+        });
+
+        $("#btn").on("click", function() {
+                $(".box").css("backgroundColor", "");
+                $(".inp").css("borderColor", "");
+
+        })
+            
+    </script>
+    
+</body>
+</html>
